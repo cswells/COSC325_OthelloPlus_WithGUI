@@ -7,15 +7,13 @@ package OthelloGrid;
 
 import Othello_p.AvailableLocation;
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import javax.swing.JPanel;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 /**
  *
  * @author Chris Wells
@@ -165,17 +163,17 @@ public class OthelloSquare extends JPanel implements MouseListener{
     public void mousePressed(MouseEvent e) {
         e.setSource(this);
         
-        if(enabled == true)
-        {
-            cyclePieces();
-            //parent.makeMove(al);
-            repaint();
-        }
-        else
-        {
-            System.out.println("Failed");
-            //doNothing
-        }
+//        if(enabled == true)
+//        {
+//            //cyclePieces(); Used for testing
+//            //parent.makeMove(al);
+//            //repaint();
+//        }
+//        else
+//        {
+//            System.out.println("Failed");
+//            //doNothing
+//        }
         //throw new UnsupportedOperationException("Not supported yet.");
     }
 
