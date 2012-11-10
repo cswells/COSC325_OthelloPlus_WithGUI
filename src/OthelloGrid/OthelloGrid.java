@@ -6,6 +6,7 @@ package OthelloGrid;
 
 import Othello_p.AvailableLocation;
 import Othello_p.CON_OthelloGame;
+import Othello_p.OthelloScoreKeeper;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -18,7 +19,8 @@ import javax.swing.JPanel;
  */
 public class OthelloGrid extends JPanel implements MouseListener{
     CON_OthelloGame game;
-    OthelloSquare[][] square;
+    OthelloScoreKeeper score;
+    public OthelloSquare[][] square;
     final int SIZE = 8;
     public OthelloGrid()
     {
@@ -27,6 +29,14 @@ public class OthelloGrid extends JPanel implements MouseListener{
         setGridSize(SIZE);
         scanBoard();
         scanAvailable();
+        score = game.passScoreKeeper();
+    }
+    
+    public void passMouseListeners(MouseListener obj)
+    {
+        for(int x = 0; x < SIZE; x++)
+            for(int y = 0; y < SIZE; y++)
+                square[x][y].addMouseListener(obj);
     }
     
     private void scanBoard()
@@ -88,6 +98,11 @@ public class OthelloGrid extends JPanel implements MouseListener{
         }
     }
     
+    public OthelloScoreKeeper passScoreKeeper()
+    {
+        return score;
+    }
+    
     private void setGridSize(int s)
     {
         this.setPreferredSize(new Dimension(s*50 +2, s*50 +2));
@@ -113,10 +128,13 @@ public class OthelloGrid extends JPanel implements MouseListener{
     public void mousePressed(MouseEvent e) {
         try{
             if(((OthelloSquare) (e.getSource())).getAvailableLoc() != null)
+            {
                 makeMove(((OthelloSquare) (e.getSource())).getAvailableLoc());
+                e.setSource(this);
+            }
             else
             {
-                //No move to be made.
+                
             }
                 //((OthelloSquare) (e.getSource())).printLocation();
         }catch(Exception empty)

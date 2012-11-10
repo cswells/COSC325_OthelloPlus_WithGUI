@@ -15,9 +15,11 @@ public class CON_OthelloGame
     public ArrayList<AvailableLocation> validLoc;
     private Boolean currentPlayer;
     private int size;
+    OthelloScoreKeeper sk;
     //AI on.off varible.
     public CON_OthelloGame(int s)
     {
+        sk = new OthelloScoreKeeper(s*s);
         this.size = s;
         board = new MOD_Board(size);
         currentPlayer = Boolean.FALSE; //Player Black - One
@@ -28,10 +30,10 @@ public class CON_OthelloGame
     
     private void setupBoard()
     {
-        board.placeToken(size/2 - 1, size/2 - 1, Boolean.TRUE);
-        board.placeToken(size/2, size/2, Boolean.TRUE);
-        board.placeToken(size/2, size/2 - 1, Boolean.FALSE);
-        board.placeToken(size/2 - 1, size/2, Boolean.FALSE);
+        placeToken(size/2 - 1, size/2 - 1, Boolean.TRUE);
+        placeToken(size/2, size/2, Boolean.TRUE);
+        placeToken(size/2, size/2 - 1, Boolean.FALSE);
+        placeToken(size/2 - 1, size/2, Boolean.FALSE);
     }
     
     public void swapPlayer()
@@ -394,13 +396,25 @@ public class CON_OthelloGame
         int x = al.getX();
         int y = al.getY();
         int[] compass = al.getCompass();
-        
-        board.placeToken(x, y, currentPlayer);
+        placeToken(x, y, currentPlayer);
         for(int i = 0; i < 8; i++)
         {
             makeMoveHelper(x, y, i, compass[i]);
         }
 
+    }
+    
+    private void placeToken(int x, int y, Boolean cP){
+        if(cP == Boolean.TRUE)
+        {
+            sk.addPointBlack();
+        }
+        else if(cP == Boolean.FALSE)
+        {
+            sk.addPointWhite();
+        }
+        
+        board.placeToken(x, y, cP);
     }
     
     private int makeMoveHelper(int x, int y, int dir, int pnt)
@@ -444,11 +458,26 @@ public class CON_OthelloGame
                 x++;
                 y++;
             }
-            board.flipToken(x, y);
+            flipToken(x, y);
             return makeMoveHelper(x, y, dir, pnt);
         }
         return 0;
         
+    }
+    
+    private void flipToken(int x, int y)
+    {
+        board.flipToken(x, y);
+        if(board.getToken(x, y) == Boolean.TRUE)
+        {
+            sk.addPointBlack();
+            sk.remPointWhite();
+        }
+        else
+        {
+            sk.remPointBlack();
+            sk.addPointWhite();
+        }
     }
     /** Locates information to the current player.
      *  
@@ -478,8 +507,12 @@ public class CON_OthelloGame
     public Boolean getPlayer()
     {
         return currentPlayer;
-    } 
-   
+    }
+    
+    public OthelloScoreKeeper passScoreKeeper()
+    {
+        return sk;
+    }
     
     public String printAvailable()
     {

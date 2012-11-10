@@ -161,7 +161,7 @@ public class OthelloSquare extends JPanel implements MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        e.setSource(this);
+        //e.setSource(this);
         
 //        if(enabled == true)
 //        {

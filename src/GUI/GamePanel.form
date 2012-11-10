@@ -18,8 +18,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="lblPlayer" min="-2" pref="132" max="-2" attributes="0"/>
-              <EmptySpace pref="168" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblImageBlack" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblImageWhite" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblScoreBlack" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblScoreBlackVal" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="lblScoreWhite" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblScoreWhiteVal" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="208" max="32767" attributes="0"/>
               <Component id="othelloGrid2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -30,8 +43,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="lblImageBlack" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblScoreBlack" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblScoreBlackVal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="lblImageWhite" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblScoreWhite" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblScoreWhiteVal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <Component id="othelloGrid2" min="-2" max="-2" attributes="0"/>
-                  <Component id="lblPlayer" min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -39,11 +66,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="lblPlayer">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Player X&apos;s Turn"/>
-      </Properties>
-    </Component>
     <Component class="OthelloGrid.OthelloGrid" name="othelloGrid2">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -53,6 +75,42 @@
             </LineBorder>
           </Border>
         </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblImageBlack">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/resources/img/black.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="name01"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblImageWhite">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/resources/img/white.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="name02"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblScoreBlack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Score :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblScoreWhite">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Score :"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblScoreBlackVal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="XXX"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblScoreWhiteVal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="XXX"/>
       </Properties>
     </Component>
   </SubComponents>

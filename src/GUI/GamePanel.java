@@ -4,19 +4,27 @@
  */
 package GUI;
 
+import Othello_p.OthelloScoreKeeper;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 
 /**
  *
  * @author Chris Wells
  */
-public class GamePanel extends javax.swing.JPanel{
+public class GamePanel extends javax.swing.JPanel implements MouseListener{
 
     /**
      * Creates new form GamePanel
      */
+    OthelloScoreKeeper score;
     public GamePanel() {
         initComponents();
-        
+        othelloGrid2.passMouseListeners(this);
+        score = othelloGrid2.passScoreKeeper();
+        lblScoreBlackVal.setText(""+score.getPointBlack());
+        lblScoreWhiteVal.setText(""+score.getPointWhite());
     }
     
     /**
@@ -28,12 +36,29 @@ public class GamePanel extends javax.swing.JPanel{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblPlayer = new javax.swing.JLabel();
         othelloGrid2 = new OthelloGrid.OthelloGrid();
-
-        lblPlayer.setText("Player X's Turn");
+        lblImageBlack = new javax.swing.JLabel();
+        lblImageWhite = new javax.swing.JLabel();
+        lblScoreBlack = new javax.swing.JLabel();
+        lblScoreWhite = new javax.swing.JLabel();
+        lblScoreBlackVal = new javax.swing.JLabel();
+        lblScoreWhiteVal = new javax.swing.JLabel();
 
         othelloGrid2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 0)));
+
+        lblImageBlack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/black.png"))); // NOI18N
+        lblImageBlack.setText("name01");
+
+        lblImageWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/white.png"))); // NOI18N
+        lblImageWhite.setText("name02");
+
+        lblScoreBlack.setText("Score :");
+
+        lblScoreWhite.setText("Score :");
+
+        lblScoreBlackVal.setText("XXX");
+
+        lblScoreWhiteVal.setText("XXX");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -41,8 +66,18 @@ public class GamePanel extends javax.swing.JPanel{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 168, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImageBlack)
+                    .addComponent(lblImageWhite)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblScoreBlack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblScoreBlackVal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblScoreWhite)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblScoreWhiteVal)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
                 .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -51,15 +86,57 @@ public class GamePanel extends javax.swing.JPanel{
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblImageBlack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblScoreBlack)
+                            .addComponent(lblScoreBlackVal))
+                        .addGap(22, 22, 22)
+                        .addComponent(lblImageWhite)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblScoreWhite)
+                            .addComponent(lblScoreWhiteVal)))
+                    .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblPlayer;
+    private javax.swing.JLabel lblImageBlack;
+    private javax.swing.JLabel lblImageWhite;
+    private javax.swing.JLabel lblScoreBlack;
+    private javax.swing.JLabel lblScoreBlackVal;
+    private javax.swing.JLabel lblScoreWhite;
+    private javax.swing.JLabel lblScoreWhiteVal;
     private OthelloGrid.OthelloGrid othelloGrid2;
     // End of variables declaration//GEN-END:variables
 
-    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        lblScoreBlackVal.setText(""+score.getPointBlack());
+        lblScoreWhiteVal.setText(""+score.getPointWhite());
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+       // throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        //throw new UnsupportedOperationException("Not supported yet.");
+    }
+
 }
