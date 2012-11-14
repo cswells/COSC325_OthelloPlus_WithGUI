@@ -5,8 +5,13 @@
 package GUI;
 
 import Othello_p.OthelloScoreKeeper;
+import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 
 
 /**
@@ -19,12 +24,25 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
      * Creates new form GamePanel
      */
     OthelloScoreKeeper score;
+    BufferedImage background;
     public GamePanel() {
         initComponents();
+        try{
+            background = ImageIO.read(new File(".\\src\\resources\\img\\23_1920.jpg"));
+        } catch (IOException fnf) {
+            System.out.println("File(s) not found");
+        }
         othelloGrid2.passMouseListeners(this);
         score = othelloGrid2.passScoreKeeper();
         lblScoreBlackVal.setText(""+score.getPointBlack());
         lblScoreWhiteVal.setText(""+score.getPointWhite());
+    }
+    
+    @Override
+    public void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), this);
     }
     
     /**
@@ -64,42 +82,47 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblImageBlack)
-                    .addComponent(lblImageWhite)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblScoreBlack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblScoreBlackVal))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblScoreWhite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblScoreWhiteVal)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
-                .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblImageBlack)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(lblScoreBlackVal))
+                            .addComponent(lblImageWhite)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblScoreWhite)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblScoreWhiteVal)))
+                        .addGap(208, 208, 208)
+                        .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblScoreBlack))
+                .addGap(10, 10, 10))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
                         .addComponent(lblImageBlack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblScoreBlack)
-                            .addComponent(lblScoreBlackVal))
+                        .addGap(6, 6, 6)
+                        .addComponent(lblScoreBlackVal)
                         .addGap(22, 22, 22)
                         .addComponent(lblImageWhite)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblScoreWhite)
                             .addComponent(lblScoreWhiteVal)))
-                    .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(67, 67, 67)
+                        .addComponent(lblScoreBlack)))
+                .addGap(11, 11, 11))
         );
     }// </editor-fold>//GEN-END:initComponents
 

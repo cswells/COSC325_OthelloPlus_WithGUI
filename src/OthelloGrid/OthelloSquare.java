@@ -6,6 +6,7 @@ package OthelloGrid;
 
 
 import Othello_p.AvailableLocation;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -35,7 +36,7 @@ public class OthelloSquare extends JPanel implements MouseListener{
     private boolean isSet;
     private OthelloGrid parent;
     
-    public OthelloSquare(AvailableLocation al)
+    public OthelloSquare()
     {
         
         //---- Image Loading Phase (START)
@@ -56,7 +57,7 @@ public class OthelloSquare extends JPanel implements MouseListener{
         isSet = false;
         addMouseListener(this);
         
-        this.al = al;
+        this.al = null;
         //----Apply Varables
 //        xcoord = x;
 //        ycoord = y;
@@ -108,48 +109,51 @@ public class OthelloSquare extends JPanel implements MouseListener{
         enabled = false;
         this.al = null;
     }
-    private void cyclePieces()
-    {
-        if(current == blank)
-        {
-            current = whiteAvail;
-        }
-        else if(current == whiteAvail)
-        {
-            current = blackAvail;
-        }
-        else if(current == blackAvail)
-        {
-            current = white;
-        }
-        else if(current == white)
-        {
-            current = black;
-        }
-        else
-        {
-            current = blank;
-        }
-        
-        repaint();
-    }
+//    private void cyclePieces()
+//    {
+//        if(current == blank)
+//        {
+//            current = whiteAvail;
+//        }
+//        else if(current == whiteAvail)
+//        {
+//            current = blackAvail;
+//        }
+//        else if(current == blackAvail)
+//        {
+//            current = white;
+//        }
+//        else if(current == white)
+//        {
+//            current = black;
+//        }
+//        else
+//        {
+//            current = blank;
+//        }
+//        
+//        repaint();
+//    }
     
     public AvailableLocation getAvailableLoc()
     {
         return al;
     }
     
-    public void printLocation()
-    {
-        System.out.println("Xlocation : "+al.getX());
-        System.out.println("Ylocation : "+al.getY());
-    
-    }
+//    public void printLocation()
+//    {
+//        System.out.println("Xlocation : "+al.getX());
+//        System.out.println("Ylocation : "+al.getY());
+//    
+//    }
     
     @Override
     public void paintComponent(Graphics g)
     {
+        
         super.paintComponent(g);
+        //setOpaque(true);
+        //setBackground(Color.ORANGE);
         g.drawImage(current, 0,0, null);
     }
     
@@ -161,20 +165,7 @@ public class OthelloSquare extends JPanel implements MouseListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        //e.setSource(this);
-        
-//        if(enabled == true)
-//        {
-//            //cyclePieces(); Used for testing
-//            //parent.makeMove(al);
-//            //repaint();
-//        }
-//        else
-//        {
-//            System.out.println("Failed");
-//            //doNothing
-//        }
-        //throw new UnsupportedOperationException("Not supported yet.");
+        //handled by the OthelloGrid Object
     }
 
     @Override

@@ -112,7 +112,7 @@ public class OthelloGrid extends JPanel implements MouseListener{
         {
             for(int x = 0; x < s; x++)
             {
-                square[x][y] = new OthelloSquare(null);
+                square[x][y] = new OthelloSquare();
                 square[x][y].addMouseListener(this);
                 this.add(square[x][y]);
             }
@@ -130,7 +130,6 @@ public class OthelloGrid extends JPanel implements MouseListener{
             if(((OthelloSquare) (e.getSource())).getAvailableLoc() != null)
             {
                 makeMove(((OthelloSquare) (e.getSource())).getAvailableLoc());
-                e.setSource(this);
             }
             else
             {
