@@ -19,7 +19,10 @@ public class MenuController {
     
     //------------END MAIN---------------
     
-    MainMenu mainMenu;
+    protected MainMenu mainMenu;
+    protected GenericFrame genFrame;
+    private int Width = 800;
+    private int Height = 640;
     Splash splash;
     
     public MenuController() {
@@ -35,6 +38,17 @@ public class MenuController {
 //        
 //        loadMainMenu();
     }
+    
+    public int getHeight()
+    {
+        return Height;
+    }
+    
+    public int getWidth()
+    {
+        return Width;
+    }
+    
     private void load()
     {
         splash = new Splash(this);
@@ -55,8 +69,11 @@ public class MenuController {
     
     
     public void loadMainMenu(){
-        mainMenu = new MainMenu(this);
-        mainMenu.setVisible(true);
+        genFrame = new GenericFrame(this);
+        genFrame.setVisible(true);
+        
+//        mainMenu = new MainMenu(this);
+//        mainMenu.setVisible(true);
     }
     
     public void closeMainMenu(){

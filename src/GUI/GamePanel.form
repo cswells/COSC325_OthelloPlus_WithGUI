@@ -88,7 +88,7 @@
     <Component class="javax.swing.JLabel" name="lblImageBlack">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/black.png"/>
+          <Image iconType="2" name="C:\Users\Chris Wells\Documents\NetBeansProjects\OthelloPlus_WithGUI\src\resources\img\black.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="name01"/>
       </Properties>
@@ -96,7 +96,7 @@
     <Component class="javax.swing.JLabel" name="lblImageWhite">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/resources/img/white.png"/>
+          <Image iconType="2" name="C:\Users\Chris Wells\Documents\NetBeansProjects\OthelloPlus_WithGUI\src\resources\img\white.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="name02"/>
       </Properties>

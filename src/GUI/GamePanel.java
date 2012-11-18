@@ -64,10 +64,10 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
 
         othelloGrid2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 0)));
 
-        lblImageBlack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/black.png"))); // NOI18N
+        lblImageBlack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Chris Wells\\Documents\\NetBeansProjects\\OthelloPlus_WithGUI\\src\\resources\\img\\black.png")); // NOI18N
         lblImageBlack.setText("name01");
 
-        lblImageWhite.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/white.png"))); // NOI18N
+        lblImageWhite.setIcon(new javax.swing.ImageIcon("C:\\Users\\Chris Wells\\Documents\\NetBeansProjects\\OthelloPlus_WithGUI\\src\\resources\\img\\white.png")); // NOI18N
         lblImageWhite.setText("name02");
 
         lblScoreBlack.setText("Score :");

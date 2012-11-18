@@ -4,42 +4,40 @@
  */
 package Menu;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 
 /**
  *
  * @author Chris Wells
  */
-public class Splash extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Splash
-     */
-    private int splashHeight;
-    private int splashWidth;
-    private BufferedImage splash;
-    private Graphics image;
-    MenuController menuCon;
+public class GenericFrame extends javax.swing.JFrame {
+    private JPanel backPanel;
+    private BufferedImage backImage;
+    protected Dimension genericSize;
+    protected MenuController menuCon;
     
-    public Splash(MenuController mc) {
+    
+    
+    /**
+     * Creates new form GenericFrame
+     */
+    public GenericFrame(MenuController mc) {
         try{
-            splash = ImageIO.read(new File(".\\src\\resources\\img\\Othello_Splash.png"));
+            backImage = ImageIO.read(new File(".\\src\\resources\\img\\background.jpg"));
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }
+        
+        
         menuCon = mc;
-        splashHeight = menuCon.getHeight()/2;
-        splashWidth = menuCon.getWidth()/2;
-        
+        genericSize = new Dimension(menuCon.getWidth(), menuCon.getHeight());
         my_initComponents();
-        
-        
-        
-        
     }
 
     /**
@@ -51,85 +49,66 @@ public class Splash extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanSplash = new javax.swing.JPanel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 640));
+        setMaximumSize(genericSize);
+        setMinimumSize(genericSize);
+        setPreferredSize(genericSize);
         setResizable(false);
-        setUndecorated(true);
-
-        javax.swing.GroupLayout jPanSplashLayout = new javax.swing.GroupLayout(jPanSplash);
-        jPanSplash.setLayout(jPanSplashLayout);
-        jPanSplashLayout.setHorizontalGroup(
-            jPanSplashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jPanSplashLayout.setVerticalGroup(
-            jPanSplashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanSplash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanSplash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-800)/2, (screenSize.height-640)/2, 800, 640);
+        pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void my_initComponents() {
 
-        jPanSplash = new javax.swing.JPanel(){
+        backPanel = new javax.swing.JPanel(){
             @Override
             public void paintComponent(Graphics g)
             {
             super.paintComponent(g);
-            g.drawImage(splash, 0,0, splashWidth,splashHeight,null);
+            g.drawImage(backImage, 0,0, backPanel.getWidth(),backPanel.getHeight(),null);
             }
         };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(splashWidth, splashHeight));
+        setPreferredSize(genericSize);
         setResizable(false);
         setUndecorated(true);
 
-        javax.swing.GroupLayout jPanSplashLayout = new javax.swing.GroupLayout(jPanSplash);
-        jPanSplash.setLayout(jPanSplashLayout);
+        javax.swing.GroupLayout jPanSplashLayout = new javax.swing.GroupLayout(backPanel);
+        backPanel.setLayout(jPanSplashLayout);
         jPanSplashLayout.setHorizontalGroup(
             jPanSplashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, splashWidth, Short.MAX_VALUE)
+            .addGap(0, menuCon.getWidth(), Short.MAX_VALUE)
         );
         jPanSplashLayout.setVerticalGroup(
             jPanSplashLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, splashHeight, Short.MAX_VALUE)
+            .addGap(0, menuCon.getHeight(), Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanSplash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanSplash, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(backPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-splashWidth)/2, (screenSize.height-splashHeight)/2, splashWidth, splashHeight);
+        setBounds((screenSize.width-menuCon.getWidth())/2, (screenSize.height-menuCon.getHeight())/2, menuCon.getWidth(), menuCon.getHeight());
     }
-    
-    /**
-     * @param args the command line arguments
-     */
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanSplash;
     // End of variables declaration//GEN-END:variables
 }
