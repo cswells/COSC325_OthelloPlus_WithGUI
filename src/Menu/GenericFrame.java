@@ -29,7 +29,7 @@ public class GenericFrame extends javax.swing.JFrame {
      */
     public GenericFrame(MenuController mc) {
         try{
-            backImage = ImageIO.read(new File(".\\src\\resources\\img\\background.jpg"));
+            backImage = ImageIO.read(new File(".\\src\\resources\\img\\backGround.png"));
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }

@@ -4,22 +4,31 @@
  */
 package Menu;
 
+import java.awt.Dimension;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Chris Wells
  */
-public class MainMenu extends GenericFrame {
-    
+public class MainMenu extends javax.swing.JFrame {
+
     /**
-     * Creates new form MainMenu
+     * Creates new form MainMenu2
      */
-    public MainMenu(MenuController mc) {
-        super(mc);
+    MenuController menuCon;
+    
+    public MainMenu(MenuController mc){
+        menuCon = mc;
         initComponents();
         
+        backPanel.setImage(".\\src\\resources\\img\\backGround.png");
         
-        
-        
+    }
+    
+    public void setBackGround(String imgLoc){
+        backPanel.setImage(imgLoc);
     }
 
     /**
@@ -31,85 +40,107 @@ public class MainMenu extends GenericFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        othelloGrid1 = new OthelloGrid.OthelloGrid();
+        backPanel = new Menu.imagePanel();
+        btnMainMenu = new javax.swing.JLabel();
+        btnExit = new javax.swing.JLabel();
+        btnOnePlayer = new javax.swing.JLabel();
+        btnTutorial = new javax.swing.JLabel();
+        btnTwoPlayer = new javax.swing.JLabel();
+        logoOthello = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 640));
+        setMinimumSize(menuCon.defaultSize);
+        setPreferredSize(menuCon.defaultSize);
+        setResizable(false);
+        setUndecorated(true);
 
-        jButton1.setText("Exit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btnMainMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnMainMenu.png"))); // NOI18N
+
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnExit.png"))); // NOI18N
+        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnExitMousePressed(evt);
             }
         });
 
-        othelloGrid1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnOnePlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnOnePlayer.png"))); // NOI18N
+        btnOnePlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnOnePlayerMousePressed(evt);
+            }
+        });
+
+        btnTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnTutorial.png"))); // NOI18N
+
+        btnTwoPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnTwoPlayer.png"))); // NOI18N
+
+        logoOthello.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/logoOthelloPlus.png"))); // NOI18N
+
+        javax.swing.GroupLayout backPanelLayout = new javax.swing.GroupLayout(backPanel);
+        backPanel.setLayout(backPanelLayout);
+        backPanelLayout.setHorizontalGroup(
+            backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backPanelLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(logoOthello)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnTwoPlayer)
+                        .addComponent(btnOnePlayer)
+                        .addComponent(btnMainMenu)
+                        .addComponent(btnTutorial)
+                        .addComponent(btnExit)))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        backPanelLayout.setVerticalGroup(
+            backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backPanelLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(logoOthello)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
+                .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnOnePlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTwoPlayer)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnTutorial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnExit)
+                .addGap(46, 46, 46))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(408, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(othelloGrid1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+            .addComponent(backPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(othelloGrid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+            .addComponent(backPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-800)/2, (screenSize.height-640)/2, 800, 640);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void my_initComponents() {
-
-        jButton1 = new javax.swing.JButton();
-        othelloGrid1 = new OthelloGrid.OthelloGrid();
-
-        jButton1.setText("Exit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(othelloGrid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(menuCon.getWidth(), Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(othelloGrid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, menuCon.getWidth(), Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-    }// </editor-fold>
-    
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
+        // TODO add your handling code here:
         menuCon.closeMainMenu();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnExitMousePressed
+
+    private void btnOnePlayerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOnePlayerMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOnePlayerMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private OthelloGrid.OthelloGrid othelloGrid1;
+    private Menu.imagePanel backPanel;
+    private javax.swing.JLabel btnExit;
+    private javax.swing.JLabel btnMainMenu;
+    private javax.swing.JLabel btnOnePlayer;
+    private javax.swing.JLabel btnTutorial;
+    private javax.swing.JLabel btnTwoPlayer;
+    private javax.swing.JLabel logoOthello;
     // End of variables declaration//GEN-END:variables
 }

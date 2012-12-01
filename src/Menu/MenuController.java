@@ -4,6 +4,8 @@
  */
 package Menu;
 
+import java.awt.Dimension;
+
 
 /**
  *
@@ -23,20 +25,14 @@ public class MenuController {
     protected GenericFrame genFrame;
     private int Width = 800;
     private int Height = 640;
+    public Dimension defaultSize;
     Splash splash;
     
     public MenuController() {
-        
+        defaultSize = new Dimension(Width, Height);
         
         load();
         
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException ex) {
-//            System.out.println("Call it quits, you cant get a sleep");
-//        }
-//        
-//        loadMainMenu();
     }
     
     public int getHeight()
@@ -69,11 +65,10 @@ public class MenuController {
     
     
     public void loadMainMenu(){
-        genFrame = new GenericFrame(this);
-        genFrame.setVisible(true);
         
-//        mainMenu = new MainMenu(this);
-//        mainMenu.setVisible(true);
+        mainMenu = new MainMenu(this);
+        mainMenu.setVisible(true);
+
     }
     
     public void closeMainMenu(){

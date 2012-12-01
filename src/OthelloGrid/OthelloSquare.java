@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 /**
  *
  * @author Chris Wells
@@ -36,27 +37,24 @@ public class OthelloSquare extends JPanel implements MouseListener{
     private boolean isSet;
     private OthelloGrid parent;
     
-    public OthelloSquare()
+    public OthelloSquare(GameImages gi)
     {
         
         //---- Image Loading Phase (START)
-        try{
-            blank = ImageIO.read(new File(".\\src\\resources\\img\\blank.png"));
-            white = ImageIO.read(new File(".\\src\\resources\\img\\white.png"));
-            whiteAvail = ImageIO.read(new File(".\\src\\resources\\img\\white_move.png"));
-            black = ImageIO.read(new File(".\\src\\resources\\img\\black.png"));
-            blackAvail = ImageIO.read(new File(".\\src\\resources\\img\\black_move.png"));
-        } catch (IOException fnf) {
-            System.out.println("File(s) not found");
-        }
+            blank = gi.getBlank();
+            white = gi.getWhite();
+            whiteAvail = gi.getWhiteAvail();
+            black = gi.getBlack();
+            blackAvail = gi.getBlackAvail();
         //---- Image Loading Phase (END)
-        
+            
+            
         //----Set Defaults
         current = blank;
         enabled = false;
         isSet = false;
         addMouseListener(this);
-        
+        this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         this.al = null;
         //----Apply Varables
 //        xcoord = x;
@@ -154,7 +152,7 @@ public class OthelloSquare extends JPanel implements MouseListener{
         super.paintComponent(g);
         //setOpaque(true);
         //setBackground(Color.ORANGE);
-        g.drawImage(current, 0,0, null);
+        g.drawImage(current, 0,0, this.getWidth(),this.getHeight(),null);
     }
     
     //---------START of Event Liseners------------

@@ -20,12 +20,15 @@ import javax.swing.JPanel;
 public class OthelloGrid extends JPanel implements MouseListener{
     CON_OthelloGame game;
     OthelloScoreKeeper score;
+    private GameImages gi;
     public OthelloSquare[][] square;
     final int SIZE = 8;
     public OthelloGrid()
     {
+        gi = new GameImages();
         square = new OthelloSquare[SIZE][SIZE];
         game = new CON_OthelloGame(SIZE);
+        this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setGridSize(SIZE);
         scanBoard();
         scanAvailable();
@@ -112,7 +115,7 @@ public class OthelloGrid extends JPanel implements MouseListener{
         {
             for(int x = 0; x < s; x++)
             {
-                square[x][y] = new OthelloSquare();
+                square[x][y] = new OthelloSquare(gi);
                 square[x][y].addMouseListener(this);
                 this.add(square[x][y]);
             }

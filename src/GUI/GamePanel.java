@@ -32,8 +32,8 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }
-        othelloGrid2.passMouseListeners(this);
-        score = othelloGrid2.passScoreKeeper();
+        othelloGrid1.passMouseListeners(this);
+        score = othelloGrid1.passScoreKeeper();
         lblScoreBlackVal.setText(""+score.getPointBlack());
         lblScoreWhiteVal.setText(""+score.getPointWhite());
     }
@@ -54,15 +54,13 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        othelloGrid2 = new OthelloGrid.OthelloGrid();
         lblImageBlack = new javax.swing.JLabel();
         lblImageWhite = new javax.swing.JLabel();
         lblScoreBlack = new javax.swing.JLabel();
         lblScoreWhite = new javax.swing.JLabel();
         lblScoreBlackVal = new javax.swing.JLabel();
         lblScoreWhiteVal = new javax.swing.JLabel();
-
-        othelloGrid2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 0)));
+        othelloGrid1 = new OthelloGrid.OthelloGrid();
 
         lblImageBlack.setIcon(new javax.swing.ImageIcon("C:\\Users\\Chris Wells\\Documents\\NetBeansProjects\\OthelloPlus_WithGUI\\src\\resources\\img\\black.png")); // NOI18N
         lblImageBlack.setText("name01");
@@ -85,43 +83,41 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImageBlack)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblImageBlack)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(lblScoreBlackVal))
-                            .addComponent(lblImageWhite)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblScoreWhite)
-                                .addGap(6, 6, 6)
-                                .addComponent(lblScoreWhiteVal)))
-                        .addGap(208, 208, 208)
-                        .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(lblScoreBlackVal))
+                    .addComponent(lblImageWhite)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblScoreWhite)
+                        .addGap(6, 6, 6)
+                        .addComponent(lblScoreWhiteVal))
                     .addComponent(lblScoreBlack))
-                .addGap(10, 10, 10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addComponent(othelloGrid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(lblImageBlack)
-                        .addGap(6, 6, 6)
-                        .addComponent(lblScoreBlackVal)
-                        .addGap(22, 22, 22)
-                        .addComponent(lblImageWhite)
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblScoreWhite)
-                            .addComponent(lblScoreWhiteVal)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(othelloGrid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(67, 67, 67)
-                        .addComponent(lblScoreBlack)))
+                        .addComponent(lblScoreBlack))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(othelloGrid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblImageBlack)
+                                .addGap(6, 6, 6)
+                                .addComponent(lblScoreBlackVal)
+                                .addGap(22, 22, 22)
+                                .addComponent(lblImageWhite)
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblScoreWhite)
+                                    .addComponent(lblScoreWhiteVal))))))
                 .addGap(11, 11, 11))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -133,7 +129,7 @@ public class GamePanel extends javax.swing.JPanel implements MouseListener{
     private javax.swing.JLabel lblScoreBlackVal;
     private javax.swing.JLabel lblScoreWhite;
     private javax.swing.JLabel lblScoreWhiteVal;
-    private OthelloGrid.OthelloGrid othelloGrid2;
+    private OthelloGrid.OthelloGrid othelloGrid1;
     // End of variables declaration//GEN-END:variables
 
     @Override
