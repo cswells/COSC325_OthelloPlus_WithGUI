@@ -22,14 +22,29 @@ public class OthelloGrid extends JPanel implements MouseListener{
     OthelloScoreKeeper score;
     private GameImages gi;
     public OthelloSquare[][] square;
-    final int SIZE = 8;
+    private int size = 8;
     public OthelloGrid()
     {
         gi = new GameImages();
-        square = new OthelloSquare[SIZE][SIZE];
-        game = new CON_OthelloGame(SIZE);
-        this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        setGridSize(SIZE);
+        square = new OthelloSquare[size][size];
+        game = new CON_OthelloGame(size);
+        //this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        
+        setGridSize(size);
+        scanBoard();
+        scanAvailable();
+        score = game.passScoreKeeper();
+    }
+    
+    public OthelloGrid(int s)
+    {
+        size = s;
+        gi = new GameImages();
+        square = new OthelloSquare[size][size];
+        game = new CON_OthelloGame(size);
+        //this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        
+        setGridSize(size);
         scanBoard();
         scanAvailable();
         score = game.passScoreKeeper();
@@ -37,15 +52,15 @@ public class OthelloGrid extends JPanel implements MouseListener{
     
     public void passMouseListeners(MouseListener obj)
     {
-        for(int x = 0; x < SIZE; x++)
-            for(int y = 0; y < SIZE; y++)
+        for(int x = 0; x < size; x++)
+            for(int y = 0; y < size; y++)
                 square[x][y].addMouseListener(obj);
     }
     
     private void scanBoard()
     {
-        for(int y = 0; y < SIZE; y++)
-            for(int x = 0; x < SIZE; x++)
+        for(int y = 0; y < size; y++)
+            for(int x = 0; x < size; x++)
                 setPeice(x, y, game.getLocation(x, y));
     }
     
@@ -64,6 +79,8 @@ public class OthelloGrid extends JPanel implements MouseListener{
         game.findValidLocations();
         if(game.validLoc.isEmpty())
         {
+            game.endGameTest();
+            
             System.out.println("No Available Moves for current player, SKIP was made!");
             game.swapPlayer();
             game.findValidLocations();
@@ -92,9 +109,9 @@ public class OthelloGrid extends JPanel implements MouseListener{
     
     private void disableAll()
     {
-        for(int y = 0; y < SIZE; y++)
+        for(int y = 0; y < size; y++)
         {
-            for(int x = 0; x < SIZE; x++)
+            for(int x = 0; x < size; x++)
             {
                 square[x][y].disableSquare();
             }
@@ -108,7 +125,8 @@ public class OthelloGrid extends JPanel implements MouseListener{
     
     private void setGridSize(int s)
     {
-        this.setPreferredSize(new Dimension(s*50 +2, s*50 +2));
+        this.setPreferredSize(new Dimension(400, 400));
+        this.setSize(400, 400);
         this.setLayout(new GridLayout(s,s));
         
         for(int y = 0; y < s; y++)

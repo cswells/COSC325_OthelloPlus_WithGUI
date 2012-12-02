@@ -13,10 +13,11 @@ public class OthelloScoreKeeper {
     int currentTurn;
     int scoreWhite;
     int scoreBlack;
+    boolean endOfGame = false; 
     
     public OthelloScoreKeeper(int m)
     {
-        currentTurn = 1;
+        currentTurn = 0;
         maxTurns = m;
     }
         
@@ -57,10 +58,13 @@ public class OthelloScoreKeeper {
     public void nextTurn(){
         currentTurn++;
     }
-    
+    public void setEndOfGame()
+    {
+        endOfGame = true;
+    }
     public boolean isEndOfGame()
     {
-        if(currentTurn == maxTurns)
+        if(currentTurn == maxTurns || endOfGame)
             return true;
         else
             return false;

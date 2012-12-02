@@ -22,7 +22,7 @@ public class CON_OthelloGame
         sk = new OthelloScoreKeeper(s*s);
         this.size = s;
         board = new MOD_Board(size);
-        currentPlayer = Boolean.FALSE; //Player Black - One
+        currentPlayer = Boolean.TRUE; //Player Black - One
         setupBoard();
         validLoc = new ArrayList<AvailableLocation>();
         findValidLocations();
@@ -30,10 +30,10 @@ public class CON_OthelloGame
     
     private void setupBoard()
     {
-        placeToken(size/2 - 1, size/2 - 1, Boolean.TRUE);
-        placeToken(size/2, size/2, Boolean.TRUE);
-        placeToken(size/2, size/2 - 1, Boolean.FALSE);
-        placeToken(size/2 - 1, size/2, Boolean.FALSE);
+        placeToken(size/2 - 1, size/2 - 1, Boolean.FALSE);
+        placeToken(size/2, size/2, Boolean.FALSE);
+        placeToken(size/2, size/2 - 1, Boolean.TRUE);
+        placeToken(size/2 - 1, size/2, Boolean.TRUE);
     }
     
     public void swapPlayer()
@@ -413,7 +413,7 @@ public class CON_OthelloGame
         {
             sk.addPointWhite();
         }
-        
+        sk.nextTurn();
         board.placeToken(x, y, cP);
     }
     
@@ -523,6 +523,27 @@ public class CON_OthelloGame
         }
         
         return temp;
+    }
+    
+    public boolean endGameTest()
+    {
+        int currentMove = validLoc.size();
+        swapPlayer();
+        validLoc.clear();
+        findValidLocations();
+        int nextMove = validLoc.size();
+        swapPlayer();
+        validLoc.clear();
+        findValidLocations();
+        
+        if(currentMove == 0 && nextMove == 0)
+        {
+            sk.setEndOfGame();
+            return true;
+        }
+        return false;
+        
+        
     }
     
     public String printBoard()

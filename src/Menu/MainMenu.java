@@ -132,6 +132,8 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void btnOnePlayerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOnePlayerMousePressed
         // TODO add your handling code here:
+        menuCon.closeMainMenu();
+        menuCon.loadGameWindow();
     }//GEN-LAST:event_btnOnePlayerMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

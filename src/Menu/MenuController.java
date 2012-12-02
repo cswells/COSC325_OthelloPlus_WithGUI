@@ -22,7 +22,8 @@ public class MenuController {
     //------------END MAIN---------------
     
     protected MainMenu mainMenu;
-    protected GenericFrame genFrame;
+    protected GameWindow gameWin;
+    protected boolean GameWindowOpen = false;
     private int Width = 800;
     private int Height = 640;
     public Dimension defaultSize;
@@ -73,6 +74,23 @@ public class MenuController {
     
     public void closeMainMenu(){
         mainMenu.dispose();
+    }
+    
+    public void loadGameWindow(){
+        if(GameWindowOpen == false){
+            gameWin = new GameWindow(this);
+            GameWindowOpen = true;
+        }
+        gameWin.setVisible(true);
+
+    }
+    
+    public void hideGameWindow(){
+        gameWin.setVisible(false);
+    }
+    
+    public void closeGameWindow(){
+        gameWin.dispose();
     }
     
     

@@ -29,6 +29,16 @@ public class imagePanel extends JPanel {
         }
     }
     
+    public imagePanel(String path)
+    {
+        super();
+        try{
+            backImage = ImageIO.read(new File(path));
+        } catch (IOException fnf) {
+            System.out.println("File(s) not found");
+        }
+    }
+    
     public void setImage(String imgFile)
     {
         try{
