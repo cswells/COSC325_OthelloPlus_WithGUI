@@ -23,6 +23,7 @@ public class GameWindow extends javax.swing.JFrame implements MouseListener{
     MenuController menuCon;
     OthelloScoreKeeper scoreKeep;
     WinningFrame win;
+    boolean exitDisabled = false;
     
     public GameWindow(MenuController mc){
         menuCon = mc;
@@ -52,7 +53,7 @@ public class GameWindow extends javax.swing.JFrame implements MouseListener{
 
         backPanel = new Menu.imagePanel();
         btnExit = new javax.swing.JLabel();
-        othelloGrid2 = new OthelloGrid.OthelloGrid(8);
+        othelloGrid2 = new OthelloGrid.OthelloGrid(menuCon.sizeOfBoard, menuCon.blackAI, menuCon.whiteAI);
         scorePanel = new imagePanel(".\\src\\resources\\img\\blank.png");
         playerBlack = new imagePanel(".\\src\\resources\\img\\black.png");
         playerWhite = new imagePanel(".\\src\\resources\\img\\white.png");
@@ -200,8 +201,10 @@ public class GameWindow extends javax.swing.JFrame implements MouseListener{
 
     private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
         // TODO add your handling code here:
-        menuCon.closeGameWindow();
-        menuCon.loadMainMenu();
+        if(!exitDisabled){
+            menuCon.closeGameWindow();
+            menuCon.loadMainMenu();
+        }
     }//GEN-LAST:event_btnExitMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -235,7 +238,7 @@ public class GameWindow extends javax.swing.JFrame implements MouseListener{
                 win = new WinningFrame(menuCon, 2);
             else
                 win = new WinningFrame(menuCon, 0);
-            
+            exitDisabled = true;
             win.setVisible(true);
         }
     }

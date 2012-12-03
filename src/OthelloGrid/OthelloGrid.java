@@ -49,6 +49,18 @@ public class OthelloGrid extends JPanel implements MouseListener{
         scanAvailable();
         score = game.passScoreKeeper();
     }
+    public OthelloGrid(int size, int black, int white){
+        this.size = size;
+        gi = new GameImages();
+        square = new OthelloSquare[size][size];
+        game = new CON_OthelloGame(size);
+        //this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        
+        setGridSize(size);
+        scanBoard();
+        scanAvailable();
+        score = game.passScoreKeeper();
+    }
     
     public void passMouseListeners(MouseListener obj)
     {

@@ -73,6 +73,11 @@ public class MainMenu extends javax.swing.JFrame {
         btnTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnTutorial.png"))); // NOI18N
 
         btnTwoPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnTwoPlayer.png"))); // NOI18N
+        btnTwoPlayer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTwoPlayerMousePressed(evt);
+            }
+        });
 
         logoOthello.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/logoOthelloPlus.png"))); // NOI18N
 
@@ -133,8 +138,13 @@ public class MainMenu extends javax.swing.JFrame {
     private void btnOnePlayerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOnePlayerMousePressed
         // TODO add your handling code here:
         menuCon.closeMainMenu();
-        menuCon.loadGameWindow();
+        menuCon.loadOnePlayerMenu();
     }//GEN-LAST:event_btnOnePlayerMousePressed
+
+    private void btnTwoPlayerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTwoPlayerMousePressed
+        menuCon.loadTwoPlayerMenu();
+        menuCon.closeMainMenu();
+    }//GEN-LAST:event_btnTwoPlayerMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Menu.imagePanel backPanel;

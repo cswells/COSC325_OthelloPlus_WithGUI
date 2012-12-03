@@ -22,17 +22,27 @@ public class MenuController {
     //------------END MAIN---------------
     
     protected MainMenu mainMenu;
+    protected OnePlayerPreGameMenu onePlayerMenu;
+    protected TwoPlayerPreGameMenu twoPlayerMenu;
     protected GameWindow gameWin;
+    protected Splash splash;
     protected boolean GameWindowOpen = false;
     private int Width = 800;
     private int Height = 640;
     public Dimension defaultSize;
-    Splash splash;
+    
+    //-----Game Settings------
+    public int sizeOfBoard;
+    public int whiteAI;
+    public int blackAI;
+    
+    
+    
     
     public MenuController() {
         defaultSize = new Dimension(Width, Height);
         
-        load();
+        runSplash();
         
     }
     
@@ -46,7 +56,7 @@ public class MenuController {
         return Width;
     }
     
-    private void load()
+    private void runSplash()
     {
         splash = new Splash(this);
         splash.setVisible(true);
@@ -60,9 +70,8 @@ public class MenuController {
         
         splash.dispose();
         loadMainMenu();
-        
-        
     }
+    
     
     
     public void loadMainMenu(){
@@ -70,6 +79,24 @@ public class MenuController {
         mainMenu = new MainMenu(this);
         mainMenu.setVisible(true);
 
+    }
+    
+    public void loadOnePlayerMenu(){
+        onePlayerMenu = new OnePlayerPreGameMenu(this);
+        onePlayerMenu.setVisible(true);
+    }
+    
+    public void closeOnePlayerMenu(){
+        onePlayerMenu.dispose();
+    }
+    
+    public void loadTwoPlayerMenu(){
+        twoPlayerMenu = new TwoPlayerPreGameMenu(this);
+        twoPlayerMenu.setVisible(true);
+    }
+    
+    public void closeTwoPlayerMenu(){
+        twoPlayerMenu.dispose();
     }
     
     public void closeMainMenu(){
@@ -90,8 +117,22 @@ public class MenuController {
     }
     
     public void closeGameWindow(){
+        GameWindowOpen = false;
         gameWin.dispose();
     }
     
+    
+    
+    
+    
+    
+    //NonWindowFunctions
+    
+    public void gameSettings(int sob, int wAI, int bAI)
+    {
+        sizeOfBoard = sob;
+        wAI = whiteAI;
+        bAI = blackAI;
+    }
     
 }

@@ -47,7 +47,9 @@ public class WinningFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         backPanel = new imagePanel(".\\src\\resources\\img\\blank.png");
+        btnMainMenu = new javax.swing.JLabel();
         lblWinner = new javax.swing.JLabel();
+        btnPlayAgain = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
@@ -55,31 +57,52 @@ public class WinningFrame extends javax.swing.JFrame {
         setResizable(false);
         setUndecorated(true);
 
+        backPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 6, true));
         backPanel.setPreferredSize(new java.awt.Dimension(800, 200));
-        backPanel.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                backPanelKeyPressed(evt);
+
+        btnMainMenu.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnMainMenu.setText("Main Menu");
+        btnMainMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnMainMenuMousePressed(evt);
             }
         });
 
         lblWinner.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
         lblWinner.setText("XXXXXXXXXXXXX");
 
+        btnPlayAgain.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        btnPlayAgain.setText("Play Again");
+        btnPlayAgain.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnPlayAgainMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout backPanelLayout = new javax.swing.GroupLayout(backPanel);
         backPanel.setLayout(backPanelLayout);
         backPanelLayout.setHorizontalGroup(
             backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backPanelLayout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(lblWinner)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addGap(19, 19, 19)
+                .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(lblWinner)
+                    .addGroup(backPanelLayout.createSequentialGroup()
+                        .addComponent(btnPlayAgain)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnMainMenu)))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
         backPanelLayout.setVerticalGroup(
             backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(backPanelLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(lblWinner)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(backPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMainMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPlayAgain, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -97,13 +120,24 @@ public class WinningFrame extends javax.swing.JFrame {
         setBounds((screenSize.width-608)/2, (screenSize.height-122)/2, 608, 122);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backPanelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_backPanelKeyPressed
+    private void btnPlayAgainMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPlayAgainMousePressed
         // TODO add your handling code here:
+        menuCon.closeGameWindow();
+        menuCon.loadGameWindow();
         this.dispose();
-    }//GEN-LAST:event_backPanelKeyPressed
+    }//GEN-LAST:event_btnPlayAgainMousePressed
+
+    private void btnMainMenuMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnMainMenuMousePressed
+        // TODO add your handling code here:
+        menuCon.closeGameWindow();
+        menuCon.loadMainMenu();
+        this.dispose();
+    }//GEN-LAST:event_btnMainMenuMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Menu.imagePanel backPanel;
+    private javax.swing.JLabel btnMainMenu;
+    private javax.swing.JLabel btnPlayAgain;
     private javax.swing.JLabel lblWinner;
     // End of variables declaration//GEN-END:variables
 }

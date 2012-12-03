@@ -46,6 +46,8 @@ public class imagePanel extends JPanel {
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }
+        
+        repaint();
     }
     
     @Override

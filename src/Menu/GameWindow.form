@@ -95,7 +95,7 @@
         </Component>
         <Component class="OthelloGrid.OthelloGrid" name="othelloGrid2">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new OthelloGrid.OthelloGrid(8)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new OthelloGrid.OthelloGrid(menuCon.sizeOfBoard, menuCon.blackAI, menuCon.whiteAI)"/>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="GameWindow_othelloGrid2"/>
           </AuxValues>
         </Component>

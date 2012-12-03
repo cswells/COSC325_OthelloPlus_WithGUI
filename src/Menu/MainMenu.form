@@ -125,6 +125,9 @@
               <Image iconType="3" name="/resources/img/btnTwoPlayer.png"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnTwoPlayerMousePressed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="logoOthello">
           <Properties>
