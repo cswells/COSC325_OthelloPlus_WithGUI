@@ -42,7 +42,7 @@ public class OthelloAI {
     
     public AvailableLocation makeEasyMove(ArrayList<AvailableLocation> al)
     {
-        rand = new Random(System.nanoTime());
+        rand = new Random();
         ArrayList<AvailableLocation> low = new ArrayList<AvailableLocation>();
         
         if(al.size() > 0){
@@ -77,7 +77,7 @@ public class OthelloAI {
     
     public AvailableLocation makeMedMove(ArrayList<AvailableLocation> al)
     {
-        rand = new Random(System.nanoTime());
+        rand = new Random();
         
         return al.get(rand.nextInt(al.size()));
     }

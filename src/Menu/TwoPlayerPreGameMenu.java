@@ -24,10 +24,11 @@ public class TwoPlayerPreGameMenu extends javax.swing.JFrame {
     private int blackAI;
     
     public TwoPlayerPreGameMenu(MenuController mc){
+        menuCon = mc;
         sizeOfBoard = 8;
         whiteAI = -1;
         blackAI = -1;
-        menuCon = mc;
+        
         gameMenuDimen = new Dimension(menuCon.getWidth(), menuCon.getHeight());
         
         initComponents();

@@ -144,8 +144,8 @@ public class MenuController {
     public void gameSettings(int sob, int wAI, int bAI)
     {
         sizeOfBoard = sob;
-        wAI = whiteAI;
-        bAI = blackAI;
+        whiteAI = wAI;
+        blackAI = bAI;
     }
     
 }
