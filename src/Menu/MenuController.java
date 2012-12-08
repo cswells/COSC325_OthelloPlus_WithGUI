@@ -26,6 +26,7 @@ public class MenuController {
     protected TwoPlayerPreGameMenu twoPlayerMenu;
     protected GameWindow gameWin;
     protected Splash splash;
+    protected Tutorial tut;
     protected boolean GameWindowOpen = false;
     private int Width = 800;
     private int Height = 640;
@@ -41,6 +42,9 @@ public class MenuController {
     
     public MenuController() {
         defaultSize = new Dimension(Width, Height);
+        sizeOfBoard = 0;
+        whiteAI = 0;
+        whiteAI = 0;
         
         runSplash();
         
@@ -97,6 +101,15 @@ public class MenuController {
     
     public void closeTwoPlayerMenu(){
         twoPlayerMenu.dispose();
+    }
+    
+    public void loadTutorial(){
+        tut = new Tutorial(this);
+        tut.setVisible(true);
+    }
+    
+    public void closeTutorial(){
+        tut.dispose();
     }
     
     public void closeMainMenu(){

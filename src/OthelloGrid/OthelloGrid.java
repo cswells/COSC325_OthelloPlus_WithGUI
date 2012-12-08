@@ -20,14 +20,20 @@ import javax.swing.JPanel;
 public class OthelloGrid extends JPanel implements MouseListener{
     CON_OthelloGame game;
     OthelloScoreKeeper score;
+    OthelloAI ai;
     private GameImages gi;
     public OthelloSquare[][] square;
     private int size = 8;
+    private int blackPlayer;
+    private int whitePlayer;
+    
+    
     public OthelloGrid()
     {
         gi = new GameImages();
         square = new OthelloSquare[size][size];
         game = new CON_OthelloGame(size);
+        ai = new OthelloAI();
         //this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         
         setGridSize(size);
@@ -54,12 +60,18 @@ public class OthelloGrid extends JPanel implements MouseListener{
         gi = new GameImages();
         square = new OthelloSquare[size][size];
         game = new CON_OthelloGame(size);
+        ai = new OthelloAI();
         //this.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         
         setGridSize(size);
         scanBoard();
         scanAvailable();
         score = game.passScoreKeeper();
+        
+        blackPlayer = black;
+        whitePlayer = white;
+        
+        runAi();
     }
     
     public void passMouseListeners(MouseListener obj)
@@ -67,6 +79,19 @@ public class OthelloGrid extends JPanel implements MouseListener{
         for(int x = 0; x < size; x++)
             for(int y = 0; y < size; y++)
                 square[x][y].addMouseListener(obj);
+    }
+    
+    private void runAi()
+    {
+        if(blackPlayer >= 0 && game.getPlayer() == Boolean.TRUE)
+        {
+            makeMove(ai.makeMove(game.validLoc, blackPlayer));
+        }
+        
+        if(whitePlayer >= 0 && game.getPlayer() == Boolean.FALSE)
+        {
+            makeMove(ai.makeMove(game.validLoc, whitePlayer));
+        }
     }
     
     private void scanBoard()
@@ -101,6 +126,7 @@ public class OthelloGrid extends JPanel implements MouseListener{
         scanBoard();
         scanAvailable();
         repaint();
+        runAi();
             
     }
     

@@ -19,15 +19,12 @@ public class OnePlayerPreGameMenu extends javax.swing.JFrame {
      */
     MenuController menuCon;
     Dimension gameMenuDimen;
-    private int sizeOfBoard;
-    private int whiteAI;
-    private int blackAI;
     
     public OnePlayerPreGameMenu(MenuController mc){
-        sizeOfBoard = 8;
-        whiteAI = 0;
-        blackAI = -1;
         menuCon = mc;
+        menuCon.sizeOfBoard = 8;
+        menuCon.whiteAI = 0;
+        menuCon.blackAI = -1;
         gameMenuDimen = new Dimension(menuCon.getWidth(), menuCon.getHeight());
         
         initComponents();
@@ -222,42 +219,42 @@ public class OnePlayerPreGameMenu extends javax.swing.JFrame {
 
     private void btnPieceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPieceMousePressed
         // TODO add your handling code here:
-        if(blackAI == -1){
+        if(menuCon.blackAI == -1){
             btnPiece.setImage(".\\src\\resources\\img\\white.png");
-            blackAI = whiteAI;
-            whiteAI = -1;
+            menuCon.blackAI = menuCon.whiteAI;
+            menuCon.whiteAI = -1;
         }
         else
         {
             btnPiece.setImage(".\\src\\resources\\img\\black.png");
-            whiteAI = blackAI;
-            blackAI = -1;
+            menuCon.whiteAI = menuCon.blackAI;
+            menuCon.blackAI = -1;
         }
         
     }//GEN-LAST:event_btnPieceMousePressed
 
     private void btnAiMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAiMousePressed
         // TODO add your handling code here:
-        if(blackAI >= 0){
-            if(blackAI == 0){
-                blackAI = 1;
+        if(menuCon.blackAI >= 0){
+            if(menuCon.blackAI == 0){
+                menuCon.blackAI = 1;
                 btnAi.setText("med");
-            }else if(blackAI == 1){
-                blackAI = 2;
+            }else if(menuCon.blackAI == 1){
+                menuCon.blackAI = 2;
                 btnAi.setText("hard");
             }else{
-                blackAI = 0;
+                menuCon.blackAI = 0;
                 btnAi.setText("easy"); 
            }
         }else{
-            if(whiteAI == 0){
-                whiteAI = 1;
+            if(menuCon.whiteAI == 0){
+                menuCon.whiteAI = 1;
                 btnAi.setText("med");
-            }else if(whiteAI == 1){
-                whiteAI = 2;
+            }else if(menuCon.whiteAI == 1){
+                menuCon.whiteAI = 2;
                 btnAi.setText("hard");
             }else{
-                whiteAI = 0;
+                menuCon.whiteAI = 0;
                 btnAi.setText("easy"); 
            }
         }
@@ -265,14 +262,14 @@ public class OnePlayerPreGameMenu extends javax.swing.JFrame {
 
     private void btnSizeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSizeMousePressed
         // TODO add your handling code here:
-        if(sizeOfBoard == 8){
-            sizeOfBoard = 10;
+        if(menuCon.sizeOfBoard == 8){
+            menuCon.sizeOfBoard = 10;
             btnSize.setText("10");
-        }else if(sizeOfBoard == 10){
-            sizeOfBoard = 12;
+        }else if(menuCon.sizeOfBoard == 10){
+            menuCon.sizeOfBoard = 12;
             btnSize.setText("12");
         }else{
-            sizeOfBoard = 8;
+            menuCon.sizeOfBoard = 8;
             btnSize.setText("8");
         }
            
@@ -285,7 +282,6 @@ public class OnePlayerPreGameMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReturnToMainMenuMousePressed
 
     private void bntPlayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bntPlayMousePressed
-        menuCon.gameSettings( sizeOfBoard, whiteAI, blackAI);
         menuCon.loadGameWindow();
         menuCon.closeOnePlayerMenu();
     }//GEN-LAST:event_bntPlayMousePressed

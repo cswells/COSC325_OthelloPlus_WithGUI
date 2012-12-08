@@ -36,6 +36,23 @@ public class AvailableLocation
         return intCompass;
     }
     
+    public int getAiValue()
+    {
+        int neg = 0;
+        int pos = 0;
+        
+        for(int i = 0; i < 8; i++)
+        {
+            if(intCompass[i] > 0)
+                pos += intCompass[i];
+            if(intCompass[i] < 0)
+                neg += intCompass[i];
+        }
+        neg = (neg * -1) * 3;
+        return neg + pos;
+        
+    }
+    
     public int getCompassTotal()
     {
         int t = 0;

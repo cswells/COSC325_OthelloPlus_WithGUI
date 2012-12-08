@@ -71,6 +71,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         btnTutorial.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnTutorial.png"))); // NOI18N
+        btnTutorial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnTutorialMousePressed(evt);
+            }
+        });
 
         btnTwoPlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/btnTwoPlayer.png"))); // NOI18N
         btnTwoPlayer.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,6 +150,12 @@ public class MainMenu extends javax.swing.JFrame {
         menuCon.loadTwoPlayerMenu();
         menuCon.closeMainMenu();
     }//GEN-LAST:event_btnTwoPlayerMousePressed
+
+    private void btnTutorialMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTutorialMousePressed
+        // TODO add your handling code here:
+        menuCon.loadTutorial();
+        menuCon.closeMainMenu();
+    }//GEN-LAST:event_btnTutorialMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private Menu.imagePanel backPanel;
