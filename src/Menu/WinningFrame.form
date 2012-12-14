@@ -53,7 +53,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;.\\src\\resources\\img\\blank.png&quot;)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;blank.png&quot;)"/>
       </AuxValues>
 
       <Layout>

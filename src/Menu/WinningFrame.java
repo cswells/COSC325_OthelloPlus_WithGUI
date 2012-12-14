@@ -46,7 +46,7 @@ public class WinningFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backPanel = new imagePanel(".\\src\\resources\\img\\blank.png");
+        backPanel = new imagePanel("blank.png");
         btnMainMenu = new javax.swing.JLabel();
         lblWinner = new javax.swing.JLabel();
         btnPlayAgain = new javax.swing.JLabel();
