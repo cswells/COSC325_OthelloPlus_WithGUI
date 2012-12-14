@@ -124,6 +124,7 @@ public class WinningFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuCon.closeGameWindow();
         menuCon.loadGameWindow();
+        this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnPlayAgainMousePressed
 
@@ -131,6 +132,7 @@ public class WinningFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         menuCon.closeGameWindow();
         menuCon.loadMainMenu();
+        this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_btnMainMenuMousePressed
 
