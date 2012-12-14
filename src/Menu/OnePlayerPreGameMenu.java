@@ -31,7 +31,7 @@ public class OnePlayerPreGameMenu extends javax.swing.JFrame {
         gameMenuDimen = new Dimension(menuCon.getWidth(), menuCon.getHeight());
         
         initComponents();
-        btnPiece.setImage(".\\src\\resources\\img\\black.png");
+        btnPiece.setImage("black.png");
         
     }
 
@@ -219,13 +219,13 @@ public class OnePlayerPreGameMenu extends javax.swing.JFrame {
     private void btnPieceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPieceMousePressed
         // TODO add your handling code here:
         if(blackAI == -1){
-            btnPiece.setImage(".\\src\\resources\\img\\white.png");
+            btnPiece.setImage("white.png");
             blackAI = whiteAI;
             whiteAI = -1;
         }
         else
         {
-            btnPiece.setImage(".\\src\\resources\\img\\black.png");
+            btnPiece.setImage("black.png");
             whiteAI = blackAI;
             blackAI = -1;
         }

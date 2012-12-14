@@ -22,7 +22,7 @@ public class WinningFrame extends javax.swing.JFrame {
     public WinningFrame(MenuController mc, int winner){
         menuCon = mc;
         initComponents();
-        backPanel.setImage(".\\src\\resources\\img\\blank.png");
+        backPanel.setImage("blank.png");
         
         if(winner == 1)
             lblWinner.setText("Black Player was the Winner!");

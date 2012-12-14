@@ -32,8 +32,8 @@ public class TwoPlayerPreGameMenu extends javax.swing.JFrame {
         gameMenuDimen = new Dimension(menuCon.getWidth(), menuCon.getHeight());
         
         initComponents();
-        picBlack.setImage(".\\src\\resources\\img\\black.png");
-        picWhite.setImage(".\\src\\resources\\img\\white.png");
+        picBlack.setImage("black.png");
+        picWhite.setImage("white.png");
         
     }
     

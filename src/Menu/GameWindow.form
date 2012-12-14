@@ -101,7 +101,7 @@
         </Component>
         <Container class="Menu.imagePanel" name="scorePanel">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;.\\src\\resources\\img\\blank.png&quot;)"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;blank.png&quot;)"/>
           </AuxValues>
 
           <Layout>
@@ -164,7 +164,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;.\\src\\resources\\img\\black.png&quot;)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;black.png&quot;)"/>
               </AuxValues>
 
               <Layout>
@@ -189,7 +189,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;.\\src\\resources\\img\\white.png&quot;)"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new imagePanel(&quot;white.png&quot;)"/>
               </AuxValues>
 
               <Layout>

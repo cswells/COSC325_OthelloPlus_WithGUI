@@ -18,31 +18,28 @@ import javax.swing.JPanel;
 public class imagePanel extends JPanel {
 
     BufferedImage backImage;
+    private final String SOP = "/resources/img/";
     
     public imagePanel()
     {
         super();
         try{
-            backImage = ImageIO.read(new File(".\\src\\resources\\img\\backGround.png"));
+            backImage = ImageIO.read(getClass().getResource(SOP + "backGround.png"));
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }
     }
     
-    public imagePanel(String path)
+    public imagePanel(String name)
     {
         super();
-        try{
-            backImage = ImageIO.read(new File(path));
-        } catch (IOException fnf) {
-            System.out.println("File(s) not found");
-        }
+        setImage(name);
     }
     
     public void setImage(String imgFile)
     {
         try{
-            backImage = ImageIO.read(new File(imgFile));
+            backImage = ImageIO.read(getClass().getResource(SOP + imgFile));
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }

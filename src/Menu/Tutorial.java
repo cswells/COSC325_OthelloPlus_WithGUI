@@ -30,15 +30,15 @@ public class Tutorial extends javax.swing.JFrame {
     private void setBackGround(int i){
         switch(i){
             case(1): 
-                backPanel.setImage(".\\src\\resources\\img\\OthelloTutoralImages\\1.png"); break;
+                backPanel.setImage("OthelloTutoralImages/1.png"); break;
             case(2): 
-                backPanel.setImage(".\\src\\resources\\img\\OthelloTutoralImages\\2.png"); break;
+                backPanel.setImage("OthelloTutoralImages/2.png"); break;
             case(3): 
-                backPanel.setImage(".\\src\\resources\\img\\OthelloTutoralImages\\3.png"); break;
+                backPanel.setImage("OthelloTutoralImages/3.png"); break;
             case(4): 
-                backPanel.setImage(".\\src\\resources\\img\\OthelloTutoralImages\\4.png"); break;
+                backPanel.setImage("OthelloTutoralImages/4.png"); break;
             case(5): 
-                backPanel.setImage(".\\src\\resources\\img\\OthelloTutoralImages\\5.png"); break;
+                backPanel.setImage("OthelloTutoralImages/5.png"); break;
         }
     }
 

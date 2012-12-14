@@ -23,7 +23,7 @@ public class MainMenu extends javax.swing.JFrame {
         menuCon = mc;
         initComponents();
         
-        backPanel.setImage(".\\src\\resources\\img\\backGround.png");
+        backPanel.setImage("backGround.png");
         
     }
     

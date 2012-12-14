@@ -30,7 +30,7 @@ public class GameWindow extends javax.swing.JFrame implements MouseListener{
         initComponents();
         scoreKeep = othelloGrid2.passScoreKeeper();
         othelloGrid2.passMouseListeners(this);
-        backPanel.setImage(".\\src\\resources\\img\\backGround.png");
+        backPanel.setImage("backGround.png");
         whiteNumScore.setText(""+scoreKeep.getPointWhite());
         blackNumScore.setText(""+scoreKeep.getPointBlack());
         
@@ -54,9 +54,9 @@ public class GameWindow extends javax.swing.JFrame implements MouseListener{
         backPanel = new Menu.imagePanel();
         btnExit = new javax.swing.JLabel();
         othelloGrid2 = new OthelloGrid.OthelloGrid(menuCon.sizeOfBoard, menuCon.blackAI, menuCon.whiteAI);
-        scorePanel = new imagePanel(".\\src\\resources\\img\\blank.png");
-        playerBlack = new imagePanel(".\\src\\resources\\img\\black.png");
-        playerWhite = new imagePanel(".\\src\\resources\\img\\white.png");
+        scorePanel = new imagePanel("blank.png");
+        playerBlack = new imagePanel("black.png");
+        playerWhite = new imagePanel("white.png");
         lblBlackScore = new javax.swing.JLabel();
         lblWhiteScore = new javax.swing.JLabel();
         whiteNumScore = new javax.swing.JLabel();

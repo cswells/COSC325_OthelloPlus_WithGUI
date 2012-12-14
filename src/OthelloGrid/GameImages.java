@@ -21,12 +21,17 @@ public class GameImages {
         private BufferedImage blackAvail;
         
     public GameImages(){
+        String startOfPath = "/resources/img/";
+        
+        
             try{
-            blank = ImageIO.read(new File(".\\src\\resources\\img\\blank.png"));
-            white = ImageIO.read(new File(".\\src\\resources\\img\\white.png"));
-            whiteAvail = ImageIO.read(new File(".\\src\\resources\\img\\white_move.png"));
-            black = ImageIO.read(new File(".\\src\\resources\\img\\black.png"));
-            blackAvail = ImageIO.read(new File(".\\src\\resources\\img\\black_move.png"));
+                blank = ImageIO.read(getClass().getResource(startOfPath + "blank.png"));
+                white = ImageIO.read(getClass().getResource(startOfPath + "white.png"));
+                whiteAvail = ImageIO.read(getClass().getResource(startOfPath + "white_move.png"));
+                black = ImageIO.read(getClass().getResource(startOfPath + "black.png"));
+                blackAvail = ImageIO.read(getClass().getResource(startOfPath + "black_move.png"));
+              
+                
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }

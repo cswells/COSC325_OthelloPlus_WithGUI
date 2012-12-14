@@ -27,7 +27,7 @@ public class Splash extends javax.swing.JFrame {
     
     public Splash(MenuController mc) {
         try{
-            splash = ImageIO.read(new File(".\\src\\resources\\img\\Othello_Splash.png"));
+            splash = ImageIO.read(getClass().getResource("/resources/img/Othello_Splash.png"));
         } catch (IOException fnf) {
             System.out.println("File(s) not found");
         }
